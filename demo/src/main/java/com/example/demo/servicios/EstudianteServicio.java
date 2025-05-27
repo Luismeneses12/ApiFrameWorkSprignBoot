@@ -14,7 +14,16 @@ public class EstudianteServicio {
  @Autowired
  public EstudianteRepositorio estudianteRepositorio;
 
- public Estudiante guardarEstudiante (Integer id, Estudiante datosEstudiante)throws Exception{
+ public  Estudiante gurdarEstudiante( Estudiante datosEstudiante){
+  try {
+   return  this.estudianteRepositorio.save(datosEstudiante);
+  } catch (Exception e) {
+   throw new RuntimeException(e.getMessage());
+  }
+ }
+
+
+ public Estudiante modificarEstudinate (Integer id, Estudiante datosEstudiante)throws Exception{
   try {
    Optional<Estudiante>buscarEstudinate = this.estudianteRepositorio.findById(id);
    if(buscarEstudinate.isPresent()){

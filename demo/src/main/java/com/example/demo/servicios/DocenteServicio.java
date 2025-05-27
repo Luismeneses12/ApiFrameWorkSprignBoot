@@ -1,7 +1,6 @@
 package com.example.demo.servicios;
 
 import com.example.demo.ayudas.mesajeApp;
-import com.example.demo.modelos.Curso;
 import com.example.demo.modelos.Docente;
 import com.example.demo.repositorio.DocenteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DocneteServicio {
+public class DocenteServicio {
     @Autowired
     public DocenteRepositorio docenteRepositorio;
 
