@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuario")
-public class UsuarioContol {
+public class UsuarioControl {
     @Autowired
     public UsuarioServicio usuarioServicio;
 
@@ -38,7 +38,7 @@ public class UsuarioContol {
                         .body(e.getMessage());
         }
     }
-    @PutMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> buscarPorId(@PathVariable Integer id){
         try {
             return ResponseEntity

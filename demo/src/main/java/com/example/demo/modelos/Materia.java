@@ -1,8 +1,12 @@
 package com.example.demo.modelos;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.List;
+
+@Entity
 @Table(name="Materia")
 public class Materia {
     @Id
@@ -11,10 +15,12 @@ public class Materia {
     @Column(name="nombreMateria")
     private  String nombreMateria;
 
-    @ManyToMany
-    @JoinColumn(name = "calificaciones",referencedColumnName = "id")
-    @JsonBackReference(value = "califiacionesMateria")
-    public Calificacion calificacion;
+
+
+    @OneToMany
+    @JoinColumn(name = "materia",referencedColumnName = "id")
+    @JsonManagedReference(value = "califiacionesMateria")
+    public List<Calificacion>calificacion;
 
 
 

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+@Entity
 @Table(name="Asistencia")
 public class Asistencia {
     @Id

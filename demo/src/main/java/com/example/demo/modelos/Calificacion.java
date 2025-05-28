@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@Entity
 @Table(name="Califiacion")
 public class Calificacion {
     @Id
@@ -22,9 +22,10 @@ public class Calificacion {
     @JsonBackReference(value = "estudianteCalificacion")
     public Estudiante estudiante;
 
-    @ManyToMany(mappedBy = "calificacion")
-    @JsonManagedReference(value = "CalificacionMateria")
-    public List<Materia>materia;
+    @ManyToOne()
+    @JoinColumn(name="materia",referencedColumnName = "id")
+    @JsonBackReference(value = "CalificacionMateria")
+    public Materia materia;
 
     public Calificacion() {
     }

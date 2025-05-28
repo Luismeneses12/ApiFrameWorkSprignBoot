@@ -21,11 +21,11 @@ public class Curso {
     @JsonBackReference(value = "docenteCurso")
     public Docente docente;
 
-    @OneToMany(mappedBy = "asistencia ",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
     @JsonManagedReference(value = "cursoAsistencia")
     public List<Asistencia>asistencias;
 
-    @OneToMany(mappedBy = "inscripcion",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
     @JsonManagedReference(value = "cursoInscripcion")
     public List<Inscripciones>inscipciones;
 
