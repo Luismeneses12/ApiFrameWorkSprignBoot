@@ -8,12 +8,12 @@ import jakarta.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Integer id;
+
     @Column(name="nombre")
     private String nombre;
-    @Column(name = "correoEletronico")
-    private String correEletronico;
+    @Column(name = "correoElectronico")
+    private String correElectronico;
     @Column(name="contrasena")
     private String contrasena;
     @Column(name="telefono")
@@ -33,10 +33,10 @@ public class Usuario {
 
     public Usuario() {
     }
-    public Usuario(String nombre, Integer id, String correEletronico, String contrasena, String telefono, TiposUsuario tipoUsuario) {
+    public Usuario(String nombre, Integer id, String correElectronico, String contrasena, String telefono, TiposUsuario tipoUsuario) {
         this.nombre = nombre;
         this.id = id;
-        this.correEletronico = correEletronico;
+        this.correElectronico = correElectronico;
         this.contrasena = contrasena;
         this.telefono = telefono;
         this.tipoUsuario = tipoUsuario;
@@ -59,11 +59,11 @@ public class Usuario {
     }
 
     public String getCorreEletronico() {
-        return correEletronico;
+        return correElectronico;
     }
 
     public void setCorreEletronico(String correEletronico) {
-        this.correEletronico = correEletronico;
+        this.correElectronico = correEletronico;
     }
 
     public String getContrasena() {

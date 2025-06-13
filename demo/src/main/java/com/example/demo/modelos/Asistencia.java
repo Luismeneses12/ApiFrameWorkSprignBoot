@@ -3,6 +3,7 @@ package com.example.demo.modelos;
 import com.example.demo.ayudas.Estado;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import java.util.List;
 
 import java.time.LocalDate;
 @Entity
@@ -23,7 +24,7 @@ public class Asistencia {
 
     @ManyToOne
     @JoinColumn(name = "asistencia",referencedColumnName = "id")
-    @JsonBackReference(value = "estudianteAsistencia")
+    @JsonBackReference(value = "EstudianteAsistencia")
     public Estudiante estudiante;
 
 

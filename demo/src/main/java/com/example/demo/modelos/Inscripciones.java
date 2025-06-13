@@ -3,6 +3,7 @@ package com.example.demo.modelos;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 @Entity
 @Table(name="Inscripsiones")
@@ -11,7 +12,7 @@ public class Inscripciones {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name="fechaInscripcion")
-    private LocalTime fechaInscripcion;
+    private LocalDate fechaInscripcion;
 
     @ManyToOne
     @JoinColumn(name = "asistencia",referencedColumnName = "id")
@@ -28,7 +29,7 @@ public class Inscripciones {
     public Inscripciones() {
     }
 
-    public Inscripciones(Integer id, LocalTime fechaInscripcion) {
+    public Inscripciones(Integer id, LocalDate fechaInscripcion) {
         this.id = id;
         this.fechaInscripcion = fechaInscripcion;
     }
@@ -41,11 +42,11 @@ public class Inscripciones {
         this.id = id;
     }
 
-    public LocalTime getFechaInscripcion() {
+    public LocalDate getFechaInscripcion() {
         return fechaInscripcion;
     }
 
-    public void setFechaInscripcion(LocalTime fechaInscripcion) {
+    public void setFechaInscripcion(LocalDate fechaInscripcion) {
         this.fechaInscripcion = fechaInscripcion;
     }
 }

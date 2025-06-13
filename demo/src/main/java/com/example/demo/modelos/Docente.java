@@ -17,7 +17,7 @@ public class Docente {
     private String especialidad;
 
     @OneToOne
-    @JoinColumn(name="docente",referencedColumnName = "id")
+    @JoinColumn(name="fkId",referencedColumnName = "id")
     @JsonBackReference(value = "usuarioDocente")
     private Usuario usuario;
 

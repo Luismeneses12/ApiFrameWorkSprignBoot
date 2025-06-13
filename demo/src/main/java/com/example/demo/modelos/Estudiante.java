@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -12,18 +13,18 @@ import java.util.List;
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
     private Integer id;
+
     @Column(name = "grado")
     private Integer grado;
     @Column(name="fechaNacimiento")
-    private LocalTime fechaNaciemnto;
+    private LocalDate fechaNaciemnto;
     @Column(name="direccion")
     private String direccion;
 
     @OneToOne
-    @JoinColumn(name="idUsuario",referencedColumnName = "id")
-    @JsonBackReference(value = "usuarioEstudienate")
+    @JoinColumn(name="fkId",referencedColumnName = "id")
+    @JsonBackReference(value = "usuarioEstudiante")
     private Usuario usuario;
 
     @OneToMany(mappedBy = "estudiante",cascade = CascadeType.ALL)
@@ -35,6 +36,7 @@ public class Estudiante {
     @JsonManagedReference(value = "estudianteCalificaciones")
     public List<Calificacion>calificacion;
 
+
     @OneToMany(mappedBy = "estudiante",cascade = CascadeType.ALL)
     @JsonManagedReference(value = "estudianteInscripcion")
     public List<Inscripciones>inscipciones;
@@ -42,7 +44,7 @@ public class Estudiante {
     public Estudiante() {
     }
 
-    public Estudiante(Integer id, Integer grado, LocalTime fechaNaciemnto, String direccion) {
+    public Estudiante(Integer id, Integer grado, LocalDate fechaNaciemnto, String direccion) {
         this.id = id;
         this.grado = grado;
         this.fechaNaciemnto = fechaNaciemnto;
@@ -65,11 +67,11 @@ public class Estudiante {
         this.grado = grado;
     }
 
-    public LocalTime getFechaNaciemnto() {
+    public LocalDate getFechaNaciemnto() {
         return fechaNaciemnto;
     }
 
-    public void setFechaNaciemnto(LocalTime fechaNaciemnto) {
+    public void setFechaNaciemnto(LocalDate fechaNaciemnto) {
         this.fechaNaciemnto = fechaNaciemnto;
     }
 
